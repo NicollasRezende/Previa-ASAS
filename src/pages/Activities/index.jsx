@@ -7,10 +7,28 @@ import sportsImage1 from '../../assets/IMGS/asas-04-AR0yJ31xXbu91ZMg.avif';
 import sportsImage2 from '../../assets/IMGS/asas-05-YZ9V2jEgL6h2p4Z2.avif';
 
 const PageContainer = styled.div`
+  min-height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; // Previne scroll horizontal
+  display: flex;
+  flex-direction: column;
   padding-top: 80px;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  background: linear-gradient(
+    135deg,
+    var(--background-100) 0%,
+    var(--background-200) 100%
+  );
 `;
 
 const HeroSection = styled.section`
+  width: 100vw; // Garante largura total da viewport
   background: linear-gradient(
     135deg,
     var(--background-300) 0%,
@@ -37,8 +55,13 @@ const HeroSection = styled.section`
 `;
 
 const Container = styled.div`
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
+  padding: 4rem 2rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 `;
 
 const Title = styled.h1`
@@ -64,6 +87,7 @@ const Description = styled.p`
 `;
 
 const StatsGrid = styled.div`
+  width: 100%; // Garante largura total
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
@@ -71,11 +95,13 @@ const StatsGrid = styled.div`
 `;
 
 const StatCard = styled.div`
+  width: 100%; // Garante largura total
   background: rgba(122, 31, 162, 0.1);
   padding: 2rem;
   border-radius: 20px;
   border: 1px solid rgba(154, 39, 205, 0.2);
   transition: transform 0.3s ease;
+  text-align: center;
 
   &:hover {
     transform: translateY(-5px);
@@ -88,9 +114,11 @@ const StatCard = styled.div`
   }
 
   .number {
-    font-size: 2.5rem;
+    font-size: 3rem;
     font-weight: 800;
-    color: var(--primary-200);
+    background: linear-gradient(45deg, var(--primary-200), var(--primary-300));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     margin-bottom: 0.5rem;
   }
 
@@ -102,10 +130,11 @@ const StatCard = styled.div`
 `;
 
 const CardGrid = styled.div`
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
-  margin: 4rem 0;
+  margin: 0 auto;
 `;
 
 const ActivityCard = styled.div`
@@ -221,15 +250,18 @@ const GalleryImage = styled.img`
 `;
 
 const Section = styled.section`
+  width: 100vw; // Garante largura total da viewport
   padding: 6rem 2rem;
   background: ${props => props.$dark ? 
     'linear-gradient(135deg, var(--background-100) 0%, var(--background-200) 100%)' : 
     'linear-gradient(135deg, var(--background-200) 0%, var(--background-300) 100%)'
   };
   position: relative;
+  overflow: hidden;
 `;
 
 const Grid = styled.div`
+  width: 100%; // Garante largura total
   display: grid;
   grid-template-columns: 1fr;
   gap: 4rem;
@@ -242,6 +274,7 @@ const Grid = styled.div`
 `;
 
 const Content = styled.div`
+  width: 100%; // Garante largura total
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -254,8 +287,9 @@ const Text = styled.p`
 `;
 
 const InfoCard = styled.div`
+  width: 100%; // Garante largura total
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 1rem;
   padding: 1.5rem;
   background: rgba(122, 31, 162, 0.1);
@@ -265,6 +299,17 @@ const InfoCard = styled.div`
   svg {
     color: var(--primary-200);
     font-size: 1.5rem;
+  }
+
+  h4 {
+    color: var(--primary-200);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    color: var(--text-200);
+    line-height: 1.6;
   }
 `;
 

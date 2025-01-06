@@ -7,10 +7,30 @@ import sportsImage1 from '../../assets/IMGS/asas-04-AR0yJ31xXbu91ZMg.avif';
 import sportsImage2 from '../../assets/IMGS/asas-05-YZ9V2jEgL6h2p4Z2.avif';
 
 const PageContainer = styled.div`
-  padding-top: 80px; // Espaço para o header fixo
+  min-height: 100vh;
+  width: 100vw; // Garante largura total da viewport
+  background: linear-gradient(
+    135deg,
+    var(--background-100) 0%,
+    var(--background-200) 100%
+  );
+  display: flex;
+  flex-direction: column;
+  padding-top: 80px;
+`;
+
+const ContentContainer = styled.div`
+  width: 100%;
+  max-width: 1200px; // Aumentado para melhor uso do espaço
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 `;
 
 const HeroSection = styled.section`
+  width: 100%; // Garante largura total
   background: linear-gradient(
     135deg,
     var(--background-300) 0%,
