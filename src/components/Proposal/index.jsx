@@ -11,26 +11,10 @@ const ProposalSection = styled.section`
     var(--background-200) 50%,
     var(--background-300) 100%
   );
-  padding: 8rem 2rem;
-  position: relative;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(
-      to right,
-      transparent,
-      var(--primary-200),
-      transparent
-    );
-  }
-
+  padding: 4rem 1rem; // Reduzido padding em mobile
+  
   @media (min-width: 768px) {
-    padding: 10rem 4rem;
+    padding: 8rem 2rem;
   }
 `;
 
@@ -39,7 +23,11 @@ const Container = styled.div`
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 4rem;
+  gap: 3rem;
+  
+  @media (min-width: 768px) {
+    gap: 4rem;
+  }
 `;
 
 const Header = styled.div`
@@ -47,27 +35,16 @@ const Header = styled.div`
   max-width: 900px;
   margin: 0 auto;
   position: relative;
-  padding: 2rem;
+  padding: 2rem 1rem; // Reduzido padding lateral em mobile
   
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100px;
-    height: 3px;
-    background: linear-gradient(90deg, 
-      transparent,
-      var(--primary-200),
-      transparent
-    );
+  @media (min-width: 768px) {
+    padding: 2rem;
   }
 `;
 
 const Title = styled.h2`
-  font-size: 3.5rem;
-  margin-bottom: 1.5rem;
+  font-size: clamp(2rem, 5vw, 3.5rem); // Fonte responsiva
+  margin-bottom: 1rem;
   background: linear-gradient(135deg,
     var(--primary-200) 0%,
     var(--primary-300) 50%,
@@ -92,7 +69,7 @@ const Title = styled.h2`
 `;
 
 const Subtitle = styled.h3`
-  font-size: 2rem;
+  font-size: clamp(1.2rem, 3vw, 2rem); // Fonte responsiva
   color: var(--text-100);
   margin-bottom: 2rem;
   font-weight: 600;
@@ -121,10 +98,10 @@ const Subtitle = styled.h3`
 
 const StatsContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  margin: 3rem 0;
-  padding: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+  padding: 0 1rem;
   background: linear-gradient(
     135deg,
     rgba(122, 31, 162, 0.1) 0%,
@@ -138,7 +115,7 @@ const StatItem = styled.div`
   text-align: center;
   
   .number {
-    font-size: 3rem;
+    font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 800;
     color: var(--primary-200);
     margin-bottom: 0.5rem;
@@ -149,7 +126,7 @@ const StatItem = styled.div`
   
   .label {
     color: var(--text-200);
-    font-size: 1.1rem;
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
     line-height: 1.4;
   }
 `;
@@ -157,12 +134,16 @@ const StatItem = styled.div`
 const Description = styled.p`
   color: var(--text-200);
   line-height: 1.8;
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 2vw, 1.2rem);
   max-width: 800px;
   margin: 0 auto;
   position: relative;
-  padding: 2rem;
+  padding: 0 1rem;
   
+  @media (min-width: 768px) {
+    padding: 0 2rem;
+  }
+
   strong {
     color: var(--primary-200);
     font-weight: 600;
@@ -190,15 +171,24 @@ const Description = styled.p`
 
 const CardsContainer = styled.div`
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr; // Por padrão mostra 1 coluna em mobile
   gap: 2rem;
+  padding: 1rem;
+  width: 100%;
 
   @media (min-width: 768px) {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr); // Tablet: 2 colunas
+    gap: 2.5rem;
+  }
+
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr); // Desktop: 3 colunas
+    gap: 3rem;
   }
 `;
 
 const Card = styled.div`
+  width: 100%;
   background: linear-gradient(
     135deg,
     rgba(12, 3, 16, 0.9) 0%,
@@ -209,6 +199,8 @@ const Card = styled.div`
   border: 1px solid rgba(154, 39, 205, 0.2);
   transition: all 0.3s ease;
   box-shadow: 0 8px 32px rgba(12, 3, 16, 0.2);
+  display: flex;
+  flex-direction: column;
 
   &:hover {
     transform: translateY(-10px);
@@ -219,9 +211,13 @@ const Card = styled.div`
 
 const CardImage = styled.img`
   width: 100%;
-  height: 240px;
+  height: 200px;
   object-fit: cover;
   transition: transform 0.3s ease;
+
+  @media (min-width: 768px) {
+    height: 240px;
+  }
 
   ${Card}:hover & {
     transform: scale(1.05);
@@ -229,39 +225,39 @@ const CardImage = styled.img`
 `;
 
 const CardContent = styled.div`
-  padding: 2.5rem;
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  flex: 1;
+
+  @media (min-width: 768px) {
+    padding: 2.5rem;
+  }
 `;
 
 const CardTitle = styled.h4`
   color: var(--primary-200);
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   font-weight: 700;
   letter-spacing: -0.02em;
   line-height: 1.3;
+
+  @media (min-width: 768px) {
+    font-size: 1.75rem;
+  }
 `;
 
 const CardText = styled.div`
   color: var(--text-200);
-  font-size: 1.1rem;
+  font-size: 1rem;
   line-height: 1.8;
-  letter-spacing: 0.02em;
-
-  strong {
-    color: var(--primary-300);
-    font-weight: 600;
-  }
-
-  p {
-    margin-bottom: 1rem;
-  }
+  flex: 1;
 
   ul {
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin: 0 0 1.5rem;
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -270,26 +266,53 @@ const CardText = styled.div`
   li {
     display: flex;
     align-items: flex-start;
+    padding-left: 1.5rem;
+    position: relative;
     
     &::before {
       content: "•";
       color: var(--primary-200);
-      margin-right: 0.75rem;
+      position: absolute;
+      left: 0;
       font-size: 1.2em;
     }
   }
 `;
 
 const ContactLink = styled(Link)`
-  display: inline-block;
-  margin-top: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
   color: var(--primary-200);
   text-decoration: none;
   font-weight: 600;
-  transition: color 0.3s ease;
+  font-size: 1rem;
+  margin-top: auto;
+  transition: all 0.3s ease;
+  padding: 0.5rem 0;
+  width: fit-content;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--primary-200);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+  }
 
   &:hover {
     color: var(--primary-300);
+    transform: translateX(5px);
+
+    &::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
   }
 `;
 

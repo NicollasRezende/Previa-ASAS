@@ -12,6 +12,9 @@ import { ActivitiesPage } from './pages/Activities';
 import { ContactPage } from './pages/Contact';
 import { PrivacyPage } from './pages/Privacy/Privacy';
 import { RegistrationPage } from './pages/Registration';
+import { ScrollReveal } from './components/ScrollReveal';
+import { ScrollToTop } from './components/ScrollToTop/ScrollToTop';
+import { ScrollToTopButton } from './components/ScrollToTop/ScrollButton';
 
 const AppContainer = styled.div`
   width: 100vw;
@@ -34,6 +37,7 @@ const MainContent = styled.main`
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <AppContainer>
         <GlobalStyles />
         <Header />
@@ -42,9 +46,15 @@ function App() {
             <Route path="/" element={
               <>
                 <Hero />
-                <About />
-                <Proposal />
-                <Gallery />
+                <ScrollReveal>
+                  <About />
+                </ScrollReveal>
+                <ScrollReveal delay={200}>
+                  <Proposal />
+                </ScrollReveal>
+                <ScrollReveal delay={400}>
+                  <Gallery />
+                </ScrollReveal>
               </>
             } />
             <Route path="/sobre" element={<AboutPage />} />
@@ -55,6 +65,7 @@ function App() {
           </Routes>
         </MainContent>
         <Footer />
+        <ScrollToTopButton />
       </AppContainer>
     </BrowserRouter>
   );

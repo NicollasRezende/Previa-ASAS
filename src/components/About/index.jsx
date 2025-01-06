@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import aboutImage from '../../assets/IMGS/asas-02-mnlv3J5rD7iZMG1y.avif';
-
+import { ScrollReveal } from '../ScrollReveal';
 
 const AboutSection = styled.section`
     background: linear-gradient(
@@ -273,9 +273,9 @@ export function About() {
     return (
         <AboutSection>
             <Container>
-                <Content>
+                <ScrollReveal>
                     <Header>
-                        <Title>Conheça o Projeto ASAS</Title>
+                        <Title>Sobre o Projeto ASAS</Title>
                         <Description>
                             Promovemos, incentivamos e solidificamos a qualidade
                             de vida e o bem-estar social por meio da prática
@@ -284,46 +284,53 @@ export function About() {
                             comunidade e região metropolitana.
                         </Description>
                     </Header>
+                </ScrollReveal>
 
-                    <ValuesList>
-                        <ValueItem>
-                            <ValueTitle>Nossa Missão</ValueTitle>
-                            <ValueText>
-                                Promover a inclusão social através do esporte,
-                                transformando vidas e fortalecendo a comunidade.
-                            </ValueText>
-                        </ValueItem>
+                <Content>
+                    <ScrollReveal delay={200}>
+                        <ValuesList>
+                            <ValueItem>
+                                <ValueTitle>Nossa Missão</ValueTitle>
+                                <ValueText>
+                                    Promover a inclusão social através do esporte,
+                                    transformando vidas e fortalecendo a comunidade.
+                                </ValueText>
+                            </ValueItem>
 
-                        <ValueItem>
-                            <ValueTitle>Nossa Visão</ValueTitle>
-                            <ValueText>
-                                Tornar o Projeto ASAS reconhecido por formar
-                                bons cidadãos, agentes transformadores nos meios
-                                em que forem inseridos, e também por capacitar
-                                bons atletas amadores ou profissionais.
-                            </ValueText>
-                        </ValueItem>
+                            <ValueItem>
+                                <ValueTitle>Nossa Visão</ValueTitle>
+                                <ValueText>
+                                    Tornar o Projeto ASAS reconhecido por formar
+                                    bons cidadãos, agentes transformadores nos meios
+                                    em que forem inseridos, e também por capacitar
+                                    bons atletas amadores ou profissionais.
+                                </ValueText>
+                            </ValueItem>
 
-                        <ValueItem>
-                            <ValueTitle>Nossos Valores</ValueTitle>
-                            <ValueText>
-                                • Compromisso, respeito mútuo e dedicação
-                                <br />
-                                • Aprendizado e renovação contínua
-                                <br />• Trabalho em equipe para o bem comum
-                            </ValueText>
-                        </ValueItem>
-                    </ValuesList>
+                            <ValueItem>
+                                <ValueTitle>Nossos Valores</ValueTitle>
+                                <ValueText>
+                                    • Compromisso, respeito mútuo e dedicação
+                                    <br />
+                                    • Aprendizado e renovação contínua
+                                    <br />• Trabalho em equipe para o bem comum
+                                </ValueText>
+                            </ValueItem>
+                        </ValuesList>
+                    </ScrollReveal>
+
+                    <ScrollReveal delay={400}>
+                        <ImageWrapper>
+                            <AboutImage 
+                                src={aboutImage} 
+                                alt="Projeto ASAS em ação" 
+                                loading="lazy"
+                            />
+                            <ImageOverlay />
+                            <ImageBorder />
+                        </ImageWrapper>
+                    </ScrollReveal>
                 </Content>
-
-                <ImageWrapper>
-                    <AboutImage 
-                        src={aboutImage} 
-                        alt="Projeto ASAS em ação" 
-                        loading="lazy"
-                    />
-                    <ImageBorder />
-                </ImageWrapper>
             </Container>
         </AboutSection>
     );
