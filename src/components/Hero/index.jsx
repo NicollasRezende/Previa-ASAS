@@ -6,7 +6,7 @@ import heroImage from '../../assets/IMGS/asas-01-A85wpVZM9ofDBOLy.avif';
 const HeroSection = styled.section`
   position: relative;
   min-height: 100vh;
-  padding: 6rem 2rem;
+  padding: 4rem 1rem; // Reduzido padding para mobile
   background: linear-gradient(
     135deg,
     var(--background-300) 0%,
@@ -31,8 +31,29 @@ const HeroSection = styled.section`
     );
   }
 
+  // Adicionado para melhor posicionamento em mobile
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: linear-gradient(
+      to top,
+      var(--background-300) 0%,
+      transparent 100%
+    );
+    pointer-events: none;
+    z-index: 1;
+  }
+
   @media (min-width: 768px) {
     padding: 8rem 4rem;
+    
+    &::after {
+      display: none; // Remove o gradiente em desktop
+    }
   }
 `;
 
@@ -44,7 +65,7 @@ const HeroContainer = styled.div`
   grid-template-columns: 1fr;
   gap: 4rem;
   position: relative;
-  z-index: 2;
+  z-index: 2; // Garante que o conteúdo fique acima do gradiente
 
   @media (min-width: 1024px) {
     grid-template-columns: 1.2fr 0.8fr;
