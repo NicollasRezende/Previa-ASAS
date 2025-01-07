@@ -331,6 +331,18 @@ const StatItem = styled.div`
   }
 `;
 
+const InfoText = styled.p`
+  color: var(--text-200);
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  line-height: 1.6;
+  margin: 1rem 0 2rem;
+  max-width: 600px;
+
+  strong {
+    color: var(--primary-200);
+  }
+`;
+
 export function AboutPage() {
   return (
     <PageContainer>
@@ -369,7 +381,11 @@ export function AboutPage() {
                 </StatItem>
               </StatsContainer>
               
-              <Button to="/contato">
+              <InfoText>
+                Para fazer parte do <strong>Projeto ASAS</strong>, basta clicar no botão 
+                abaixo e se inscrever. Venha transformar vidas através do esporte!
+              </InfoText>
+              <Button to="/inscricao">
                 Junte-se a nós! 
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                   <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>

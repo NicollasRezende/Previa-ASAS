@@ -305,7 +305,7 @@ export function Hero() {
               Junte-se a nós!<br />
               Torne-se um <strong>INTEGRANTE ASAS</strong>!
             </CTAText>
-            <CTAButton to="/contato">
+            <CTAButton to="/sobre">
               Saiba como... <FaArrowRight />
             </CTAButton>
           </CallToAction>

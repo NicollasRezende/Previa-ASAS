@@ -367,7 +367,7 @@ export function Proposal() {
                   <li>Atividades realizadas nas manhãs de sábados e domingos</li>
                   <li>Acompanhamento profissional e metodologia própria</li>
                 </ul>
-                <ContactLink to="/contato">Agende seu treino →</ContactLink>
+                <ContactLink to="/sobre">Saiba um pouco mais →</ContactLink>
               </CardText>
             </CardContent>
           </Card>
@@ -382,7 +382,7 @@ export function Proposal() {
                   <li>Preparação para competições regionais e estaduais</li>
                   <li>Em breve: equipes juvenis e masters masculina e feminina</li>
                 </ul>
-                <ContactLink to="/atividades">Conheça nossas equipes →</ContactLink>
+                <ContactLink to="/atividades">Conheça nossas atividades →</ContactLink>
               </CardText>
             </CardContent>
           </Card>
