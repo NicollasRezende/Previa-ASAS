@@ -428,11 +428,11 @@ export function Header() {
                     </MobileNavLink>
                     <MobileNavLink to="/sobre" onClick={handleLinkClick}>
                         <FaInfoCircle />
-                        Nossa Proposta
+                        Sobre
                     </MobileNavLink>
                     <MobileNavLink to="/atividades" onClick={handleLinkClick}>
                         <FaRunning />
-                        Treinos e Equipes
+                        Atividades
                     </MobileNavLink>
                     <MobileNavLink to="/contato" onClick={handleLinkClick}>
                         <FaEnvelope />
