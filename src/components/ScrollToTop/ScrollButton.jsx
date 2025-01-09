@@ -28,10 +28,14 @@ const ScrollButton = styled.button`
     height: 45px;
     bottom: ${props => props.$show ? '1.5rem' : '-5rem'};
     right: 1.5rem;
+
+    svg {
+      font-size: 2.5rem; // Aumentado o tamanho do ícone no mobile
+    }
   }
 
   svg {
-    font-size: 1.5rem; // Aumentado o tamanho do ícone
+    font-size: 2rem; // Tamanho padrão do ícone
     transition: transform 0.3s ease;
     color: var(--text-100); // Garantindo a cor do ícone
     display: block; // Garante que o ícone seja exibido corretamente
